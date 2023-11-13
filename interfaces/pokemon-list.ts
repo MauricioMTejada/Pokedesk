@@ -9,5 +9,5 @@ export interface SmallPokemon {
     name: string;
     url:  string;
     id: number | null;
-    img: string | null;
+    img: string | null | undefined;
 }
