@@ -6,9 +6,6 @@ import Image from "next/image";
 export const Navbar = () => {
     const { theme } = useTheme();
 
-    console.log(theme);
-
-
   return (
     <div style={{
         display:'flex',
@@ -25,6 +22,8 @@ export const Navbar = () => {
             alt="icono de la app"
             width={70}
             height={70}
+            // priority={false}
+            priority={true}
         />
 
         <text>P</text>
