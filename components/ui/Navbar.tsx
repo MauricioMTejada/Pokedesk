@@ -26,10 +26,10 @@ export const Navbar = () => {
             priority={true}
         />
 
-        <text>P</text>
-        <text>ókemon</text>
+        <span>P</span>
+        <span>ókemon</span>
         <Spacer style={{ flex: 1}}/>
-        <text> Favoritos </text>
+        <span> Favoritos </span>
     </div>
   )
 }
