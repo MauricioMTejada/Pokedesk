@@ -1,6 +1,7 @@
 import { useTheme } from "next-themes";
 import { Spacer } from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 export const Navbar = () => {
@@ -26,10 +27,16 @@ export const Navbar = () => {
             priority={true}
         />
 
-        <span>P</span>
-        <span>ókemon</span>
+        <Link href='/'>
+          <div className="flex items-center">
+            <span className="text-4xl">P</span>
+            <span className="text-xl">ókemon</span>
+          </div>
+        </Link>
         <Spacer style={{ flex: 1}}/>
-        <span> Favoritos </span>
+        <Link href='/favorites'>
+          <span> Favoritos </span>
+        </Link>
     </div>
   )
 }
