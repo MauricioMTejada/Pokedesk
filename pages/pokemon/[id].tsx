@@ -1,10 +1,14 @@
+import { useState } from "react";
+
 import { useRouter } from "next/router"
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
+
+import { Card, CardBody, Image, CardFooter, CardHeader, Button } from "@nextui-org/react";
 
 import { Layout } from "../../components/layouts";
 import { pokeApi } from "../../api";
 import { Pokemon } from "../../interfaces";
-import { Card, CardBody, Image, CardFooter, CardHeader, Button } from "@nextui-org/react";
+import { localFavorites } from "../../utils";
 
 interface Props {
     pokemon: Pokemon;
@@ -12,10 +16,22 @@ interface Props {
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 
-    // console.log(pokemon);
+    // const [isInFavorites, setIsInFavorites] = useState(true)
+
+    const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorites(pokemon.id))
+
+
+    const onTogleFavorite = () => {
+        // console.log('ID:', pokemon.id );
+        // localStorage.setItem('favorites', `${pokemon.id}`)
+        localFavorites.toggleFavorite(pokemon.id)
+        setIsInFavorites(!isInFavorites);
+    }
+
+
 
     return (
-        <Layout title= "Algún Pókemon">
+        <Layout title={pokemon.name}>
             <div className='grid grid-cols-6 gap-4'>
                 <Card
                     isHoverable
@@ -32,8 +48,8 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                 <Card className="col-span-2">
                     <CardHeader className="flex justify-between">
                         <h1 className="text-3xl font-bold mb-4 capitalize">{pokemon.name}</h1>
-                        <Button color="primary" variant="ghost">
-                            Guardar en Favoritos
+                        <Button color="primary" variant={isInFavorites?  "solid": "ghost"} onClick={ onTogleFavorite }>
+                            {isInFavorites ? 'Favorito' : 'Guardar en Favoritos'}
                         </Button>
                     </CardHeader>
                     <CardBody>
@@ -76,7 +92,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
     const pokemon151 = [...Array(151)].map( ( value, index ) => `${ index+1  }`)
-    console.log(pokemon151);
+    // console.log(pokemon151);
 
 
     return {
