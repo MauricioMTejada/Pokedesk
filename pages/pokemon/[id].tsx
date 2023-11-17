@@ -16,8 +16,6 @@ interface Props {
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 
-    // const [isInFavorites, setIsInFavorites] = useState(true)
-
     const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorites(pokemon.id))
 
 
