@@ -9,7 +9,7 @@ export const FavoritePokemons: FC<Props> = ( {favoritePokemon} ) => {
   return (
     <div className="flex flex-row">{
         favoritePokemon.map(id => (
-            <FavoriteCardPokemon id={id}/>
+            <FavoriteCardPokemon key={id} id={id}/>
         ))
         }</div>
   )
