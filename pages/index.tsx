@@ -1,7 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
 
-import { Card, CardBody, CardFooter, Image } from '@nextui-org/react'
-
 import { Layout } from '../components/layouts'
 import { pokeApi } from '../api'
 import { PokemonListResponse, SmallPokemon } from '../interfaces'
