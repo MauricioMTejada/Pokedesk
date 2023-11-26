@@ -17,18 +17,16 @@ export const PokemonCard: FC<Props> = ( { pokemon: { id, name, img } }) => {
     }
 
   return (
-    <Card
-        key={ id }
-        isHoverable
-        isPressable
-        onClick={ onClick }
-    >
-        <CardBody>
-            <Image src={img ?? 'ruta'} alt='imagen Pokemon' width= { 140 } />
-        </CardBody>
-        <CardFooter>
-            <span>#{id} -&nbsp;</span><span className='text-transform: capitalize'>{name}</span>
-        </CardFooter>
-    </Card>
-  )
+		<Card key={id} isHoverable isPressable onClick={onClick}>
+			<CardBody className="grid place-content-center">
+				<Image src={img ?? "ruta"} alt="imagen Pokemon" width={140} />
+			</CardBody>
+			<CardFooter className="grid place-content-center">
+				<div className="font-bold">
+					<span>#{id} -&nbsp;</span>
+					<span className="text-transform: capitalize">{name}</span>
+				</div>
+			</CardFooter>
+		</Card>
+	);
 }
