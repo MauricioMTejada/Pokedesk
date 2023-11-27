@@ -31,20 +31,22 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
 
     return (
         <Layout title={pokemon.name}>
-            <div className='grid grid-cols-6 gap-4'>
+            <div className='flex justify-center'>
+
                 <Card
                     isHoverable
+                    className="mr-3"
                 >
-                    <CardBody>
-                        <Image
-                            src={ pokemon.sprites.other?.dream_world.front_default || '/no-image.png'}
-                            alt={ pokemon.name}
-                            width="100%"
-                            height={ 200 }
-                        />
+                    <CardBody className="grid place-content-center">
+                            <Image
+                                src={ pokemon.sprites.other?.dream_world.front_default || '/no-image.png'}
+                                alt={ pokemon.name}
+                                width={150}
+                                className="max-h-40"
+                            />
                     </CardBody>
                 </Card>
-                <Card className="col-span-2">
+                <Card className="col-span-2 ml-3">
                     <CardHeader className="flex justify-between">
                         <h1 className="text-3xl font-bold mb-4 capitalize">{pokemon.name}</h1>
                         <Button color="primary" variant={isInFavorites?  "solid": "ghost"} onClick={ onTogleFavorite }>

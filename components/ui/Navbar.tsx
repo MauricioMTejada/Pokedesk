@@ -7,17 +7,6 @@ export const Navbar = () => {
 	const { theme } = useTheme();
 
 	return (
-		// <div style={{
-		//     display:'flex',
-		//     width: '100%',
-		//     flexDirection: 'row',
-		//     alignItems: 'center',
-		//     // justifyContent: 'start',
-		//     justifyContent: 'space-around',
-		//     padding: '0px 20px',
-		//     // backgroundColor: theme?.colors.gray900.value
-		// }}>
-
 		<div className="flex justify-between items-center pl-5 pr-10">
 			<div className="flex items-center">
 				<Image
@@ -25,7 +14,6 @@ export const Navbar = () => {
 					alt="icono de la app"
 					width={70}
 					height={70}
-					// priority={false}
 					priority={true}
 				/>
 
