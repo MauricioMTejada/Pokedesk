@@ -19,7 +19,12 @@ export const PokemonCard: FC<Props> = ( { pokemon: { id, name, img } }) => {
   return (
 		<Card key={id} isHoverable isPressable onClick={onClick}>
 			<CardBody className="grid place-content-center">
-				<Image src={img ?? "ruta"} alt="imagen Pokemon" width={140} />
+				<Image
+                    src={img ?? "ruta"}
+                    alt="imagen Pokemon"
+                    // width={140}
+                    className="max-w-40 max-h-40"
+                />
 			</CardBody>
 			<CardFooter className="grid place-content-center">
 				<div className="font-bold">
