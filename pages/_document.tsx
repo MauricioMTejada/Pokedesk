@@ -10,7 +10,9 @@ class MyDocument extends Document {
         return (
             <Html lang="es">
                 <Head>
-                    <title>Pokedesk</title>
+                    <meta charSet="utf-8" />
+                    <meta name="description" content="Your description here" />
+                    <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <body>
                     <Main />
